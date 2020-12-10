@@ -53,14 +53,14 @@
   <entry>
     <title>Jquery基础语法</title>
     <url>/2020/12/10/Jquery/</url>
-    <content><![CDATA[<h1 id="Jquery基础使用方式"><a href="#Jquery基础使用方式" class="headerlink" title="Jquery基础使用方式"></a>Jquery基础使用方式</h1><a id="more"></a>
+    <content><![CDATA[<h1 id="Jquery找页面元素-找页面元素-属性操作方法"><a href="#Jquery找页面元素-找页面元素-属性操作方法" class="headerlink" title="Jquery找页面元素,找页面元素,属性操作方法"></a>Jquery找页面元素,找页面元素,属性操作方法</h1><a id="more"></a>
 
 <h1 id="找页面元素"><a href="#找页面元素" class="headerlink" title="找页面元素"></a>找页面元素</h1><p>$(’#元素的id值’)</p>
 <p>$(‘元素名’)</p>
 <p>$(’.class属性值’)</p>
 <p>$(’[属性名=属性值]’)</p>
 <p>$(‘option:selected’)</p>
-<h1 id="操作页面元素"><a href="#操作页面元素" class="headerlink" title="操作页面元素"></a>操作页面元素</h1><p>怎么使用JQ方式操作页面元素:</p>
+<h1 id="找页面元素-1"><a href="#找页面元素-1" class="headerlink" title="找页面元素"></a>找页面元素</h1><p>怎么使用JQ方式操作页面元素:</p>
 <p>.val(值) //有值就是设置,无值就是获取,针对元素value属性操作</p>
 <p>.html(值) //有值就是设置,无值就是获取,针对元素中间内容</p>
 <p>.text(值) //有值就是设置,无值就是获取,针对元素中间纯文本内容</p>
@@ -78,7 +78,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>分享</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
@@ -116,11 +116,11 @@
 
 ]]></content>
       <categories>
-        <category>干货</category>
+        <category>综合</category>
       </categories>
       <tags>
-        <tag>分享</tag>
         <tag>插件</tag>
+        <tag>干货</tag>
       </tags>
   </entry>
   <entry>
@@ -151,8 +151,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>分享</tag>
         <tag>干货</tag>
+        <tag>框架</tag>
       </tags>
   </entry>
 </search>
