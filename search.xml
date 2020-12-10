@@ -23,8 +23,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>导航</tag>
         <tag>分享</tag>
+        <tag>测试</tag>
       </tags>
   </entry>
   <entry>
@@ -49,6 +49,37 @@
       </categories>
       <tags>
         <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jquery基础语法</title>
+    <url>/2020/12/10/Jquery/</url>
+    <content><![CDATA[<h1 id="Jquery基础使用方式"><a href="#Jquery基础使用方式" class="headerlink" title="Jquery基础使用方式"></a>Jquery基础使用方式</h1><a id="more"></a>
+
+<h1 id="找页面元素"><a href="#找页面元素" class="headerlink" title="找页面元素"></a>找页面元素</h1><p>$(’#元素的id值’)</p>
+<p>$(‘元素名’)</p>
+<p>$(’.class属性值’)</p>
+<p>$(’[属性名=属性值]’)</p>
+<p>$(‘option:selected’)</p>
+<h1 id="操作页面元素"><a href="#操作页面元素" class="headerlink" title="操作页面元素"></a>操作页面元素</h1><p>怎么使用JQ方式操作页面元素:</p>
+<p>.val(值) //有值就是设置,无值就是获取,针对元素value属性操作</p>
+<p>.html(值) //有值就是设置,无值就是获取,针对元素中间内容</p>
+<p>.text(值) //有值就是设置,无值就是获取,针对元素中间纯文本内容</p>
+<p>.css(‘样式名’,[值]) //有值就是设置,无值就是获取,针对元素style属性操作</p>
+<h1 id="属性操作方法"><a href="#属性操作方法" class="headerlink" title="属性操作方法"></a>属性操作方法</h1><p>$(’#gender’).css(‘color’);//css方法 针对style属性</p>
+<p>$(’#gender’).val();//val方法针对value属性</p>
+<p>$(’#gender’).removeClass(‘other’);//针对class属性</p>
+<p>$(’#gender’).prop(‘checked’);//针对checked属性,class属性</p>
+<p>$(’#gender’).data(‘option’); //data-开头的属性的获取,若值是json格式,自动转成js对象</p>
+<p>//其他情况使用attr方法</p>
+<h1 id="ajax基础语法"><a href="#ajax基础语法" class="headerlink" title="ajax基础语法"></a>ajax基础语法</h1><p>$.get(url,data,callback);</p>
+<p>$.post(url,data,callback);</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>-分享</tag>
       </tags>
   </entry>
 </search>
