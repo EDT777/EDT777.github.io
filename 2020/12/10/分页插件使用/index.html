@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"edt777.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="freemarker+bootstrap分页插件使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分页插件使用">
+<meta property="og:url" content="https://edt777.github.io/2020/12/10/%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="EDT777">
+<meta property="og:description" content="freemarker+bootstrap分页插件使用">
+<meta property="og:locale">
+<meta property="og:image" content="c:/Users/14454/AppData/Roaming/Typora/typora-user-images/image-20201210214959428.png">
+<meta property="article:published_time" content="2020-12-10T13:42:48.000Z">
+<meta property="article:modified_time" content="2020-12-10T13:50:04.707Z">
+<meta property="article:author" content="Edric_豪">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/14454/AppData/Roaming/Typora/typora-user-images/image-20201210214959428.png">
+
+
+<link rel="canonical" href="https://edt777.github.io/2020/12/10/%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+<title>分页插件使用 | EDT777</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/EDT777" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">EDT777</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#freemarker-bootstrap%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">freemarker+bootstrap分页插件使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pom-xml-%E9%83%A8%E5%88%86"><span class="nav-number">2.1.</span> <span class="nav-text">pom.xml 部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#applicationContext-xml%E9%83%A8%E5%88%86"><span class="nav-number">2.2.</span> <span class="nav-text">applicationContext.xml部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.1.</span> <span class="nav-text">分页配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#freemarker%E8%A7%86%E5%9B%BE%E8%A7%A3%E6%9E%90%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.2.</span> <span class="nav-text">freemarker视图解析器配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E9%83%A8%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">后端部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AAQueryobject%E7%B1%BB%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E4%BC%A0%E8%BF%87%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">3.1.</span> <span class="nav-text">定义一个Queryobject类获取前端传过来的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E5%B1%82%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="nav-number">3.2.</span> <span class="nav-text">业务层实现类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B1%82"><span class="nav-number">3.3.</span> <span class="nav-text">控制器层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">前端部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#js%E9%83%A8%E5%88%86"><span class="nav-number">4.1.</span> <span class="nav-text">js部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#freemarker%E9%A1%B5%E9%9D%A2%E9%83%A8%E5%88%86"><span class="nav-number">4.2.</span> <span class="nav-text">freemarker页面部分</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Edric_豪"
+      src="/images/tzh.jpg">
+  <p class="site-author-name" itemprop="name">Edric_豪</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/EDT777" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;EDT777" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/p/1005051996519101/home?from=page_100505&mod=TAB&is_all=1#place" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;p&#x2F;1005051996519101&#x2F;home?from&#x3D;page_100505&amp;mod&#x3D;TAB&amp;is_all&#x3D;1#place" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/EDT777" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;EDT777" rel="noopener" target="_blank">CSDN技术博客</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://edt777.github.io/2020/12/10/%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tzh.jpg">
+      <meta itemprop="name" content="Edric_豪">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EDT777">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          分页插件使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-10 21:42:48 / 修改时间：21:50:04" itemprop="dateCreated datePublished" datetime="2020-12-10T21:42:48+08:00">2020-12-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="freemarker-bootstrap分页插件使用"><a href="#freemarker-bootstrap分页插件使用" class="headerlink" title="freemarker+bootstrap分页插件使用"></a>freemarker+bootstrap分页插件使用</h1><a id="more"></a>
+
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="pom-xml-部分"><a href="#pom-xml-部分" class="headerlink" title="pom.xml 部分"></a>pom.xml 部分</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--       分页插件 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="applicationContext-xml部分"><a href="#applicationContext-xml部分" class="headerlink" title="applicationContext.xml部分"></a>applicationContext.xml部分</h2><h3 id="分页配置"><a href="#分页配置" class="headerlink" title="分页配置"></a>分页配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!--    配置SqlSessionFactory对象--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;sqlSessionFactory&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;typeAliasesPackage&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.edt.domain&quot;</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--      分页拦截器--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;plugins&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.github.pagehelper.PageInterceptor&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;properties&quot;</span>&gt;</span></span><br><span class="line">                        <span class="comment">&lt;!--使用下面的方式配置参数，一行配置一个 --&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">value</span>&gt;</span></span><br><span class="line">                            pageSizeZero=true <span class="comment">&lt;!--0的时候就是查所有 --&gt;</span></span><br><span class="line">                            reasonable=true <span class="comment">&lt;!-- pageNum&lt;=0 时会查询第一页， pageNum&gt;pages（超过总数时），会查询最后一页 --&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="freemarker视图解析器配置"><a href="#freemarker视图解析器配置" class="headerlink" title="freemarker视图解析器配置"></a>freemarker视图解析器配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注册 FreeMarker 配置类 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 配置 FreeMarker 的文件编码 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;defaultEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 配置 FreeMarker 寻找模板的路径 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;templateLoaderPath&quot;</span> <span class="attr">value</span>=<span class="string">&quot;/WEB-INF/views/&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;freemarkerSettings&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 兼容模式 ，配了后不需要另外处理空值问题，时间格式除外 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;classic_compatible&quot;</span>&gt;</span>true<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 注册 FreeMarker 视图解析器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 是否把session中的attribute复制到模板的属性集中，可以使用FreeMarker的表达式来访问并显示--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;exposeSessionAttributes&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 配置逻辑视图自动添加的后缀名 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;suffix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;.ftl&quot;</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 配置响应头中 Content-Type 的指 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;contentType&quot;</span> <span class="attr">value</span>=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h1><h2 id="定义一个Queryobject类获取前端传过来的数据"><a href="#定义一个Queryobject类获取前端传过来的数据" class="headerlink" title="定义一个Queryobject类获取前端传过来的数据"></a>定义一个Queryobject类获取前端传过来的数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Queryobject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currentPage =<span class="number">1</span>;<span class="comment">//当前页码</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> pageSize=<span class="number">5</span>;<span class="comment">//一页显示几条数据</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="业务层实现类"><a href="#业务层实现类" class="headerlink" title="业务层实现类"></a>业务层实现类</h2><ul>
+<li>分页插件,不需要我们写count语句,它会自动生成, 高查sql不需要我们自己写limt,它会在你原本的sql上自动拼接limit上去并执行<br>,limit是插件自动计算参数并拼接上去,qo,提供PageInfo类,用于封装分页相关数据,不需要自己写PageResult类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public PageInfo&lt;Department&gt; query(Queryobject qo) </span><br><span class="line">        PageHelper.startPage(qo.getCurrentPage(), qo.getPageSize());&#x2F;&#x2F;开始分页(对下一个sql进行分页),传当前页和每页显示数量</span><br><span class="line">        List&lt;Department&gt; departments &#x3D; departmentMapper.selectForList(qo);</span><br><span class="line">        return new PageInfo&lt;&gt;(departments);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="控制器层"><a href="#控制器层" class="headerlink" title="控制器层"></a>控制器层</h2><ul>
+<li>直接返回给前端数据即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;&#x2F;list&quot;)</span><br><span class="line">    public String list(Model model, Queryobject qo)&#123;</span><br><span class="line"></span><br><span class="line">        model.addAttribute(&quot;pageInfo&quot;,departmentService.query(qo));</span><br><span class="line">                return &quot;department&#x2F;list&quot;;&#x2F;&#x2F;WEB-INF&#x2F;views&#x2F;department&#x2F;list.jsp</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\14454\AppData\Roaming\Typora\typora-user-images\image-20201210214959428.png" alt="image-20201210214959428"></p>
+<h1 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h1><h2 id="js部分"><a href="#js部分" class="headerlink" title="js部分"></a>js部分</h2><ul>
+<li>这段我单独放进page.ftl页面作为公共,方便给其他页面使用&lt;#include “/xxx/page.ftl” &gt;引入使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;分页  调用了bootstrap的分页插件</span><br><span class="line">    $(function()&#123;</span><br><span class="line">        $(&quot;#pagination&quot;).twbsPagination(&#123;</span><br><span class="line">                totalPages: $&#123;pageInfo.pages&#125; || 1, &#x2F;&#x2F;总页数,pageinfo是对应后端传来的变量名称</span><br><span class="line">                startPage: $&#123;pageInfo.pageNum&#125; || 1, &#x2F;&#x2F;当前页</span><br><span class="line">                visiblePages:5, &#x2F;&#x2F;显示几页</span><br><span class="line">                first:&quot;首页&quot;,</span><br><span class="line">                prev:&quot;上页&quot;,</span><br><span class="line">                next:&quot;下页&quot;,</span><br><span class="line">                last:&quot;尾页&quot;,</span><br><span class="line">                initiateStartPageClick:false,</span><br><span class="line">                onPageClick:function(event,page)&#123;&#x2F;&#x2F;点击页数 会执行方法</span><br><span class="line">					$(&quot;#currentPage&quot;).val(page);</span><br><span class="line">					$(&quot;#searchForm&quot;).submit();</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="freemarker页面部分"><a href="#freemarker页面部分" class="headerlink" title="freemarker页面部分"></a>freemarker页面部分</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--编写内容--&gt;</span><br><span class="line">                &lt;div class&#x3D;&quot;box-body table-responsive &quot;&gt;</span><br><span class="line">                    &lt;table class&#x3D;&quot;table table-hover table-bordered table-striped&quot;&gt;</span><br><span class="line">                        &lt;thead&gt;</span><br><span class="line">                        &lt;tr&gt;</span><br><span class="line">                            &lt;th&gt;序号&lt;&#x2F;th&gt;</span><br><span class="line">                            &lt;th&gt;部门名称&lt;&#x2F;th&gt;</span><br><span class="line">                            &lt;th&gt;部门编号&lt;&#x2F;th&gt;</span><br><span class="line">                            &lt;th&gt;操作&lt;&#x2F;th&gt;</span><br><span class="line">                        &lt;&#x2F;tr&gt;</span><br><span class="line">                        &lt;&#x2F;thead&gt;</span><br><span class="line">                        &lt;tbody&gt;</span><br><span class="line"></span><br><span class="line">                        &lt;#list pageInfo.list as d&gt;</span><br><span class="line">                        &lt;tr&gt;</span><br><span class="line">                            &lt;td&gt;$&#123;d_index+1&#125;&lt;&#x2F;td&gt;</span><br><span class="line">                            &lt;td&gt;$&#123;d.name&#125;&lt;&#x2F;td&gt;</span><br><span class="line">                            &lt;td&gt;$&#123;d.sn&#125;&lt;&#x2F;td&gt;</span><br><span class="line">                            &lt;td&gt;</span><br><span class="line">                                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;btn btn-info btn-xs btn-input &quot; data-json&#x3D;&#39;$&#123;d.toJson()&#125;&#39;&gt;</span><br><span class="line">                                    &lt;span class&#x3D;&quot;glyphicon glyphicon-pencil&quot;&gt;&lt;&#x2F;span&gt; 编辑</span><br><span class="line">                                &lt;&#x2F;a&gt;</span><br><span class="line">                                &lt;a class&#x3D;&quot;btn btn-danger btn-xs btn-delete&quot;&gt;</span><br><span class="line">                                    &lt;span class&#x3D;&quot;glyphicon glyphicon-trash&quot;&gt;&lt;&#x2F;span&gt; 删除</span><br><span class="line">                                &lt;&#x2F;a&gt;</span><br><span class="line">                            &lt;&#x2F;td&gt;</span><br><span class="line">                        &lt;&#x2F;tr&gt;</span><br><span class="line">                        &lt;&#x2F;#list&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;&#x2F;table&gt;</span><br><span class="line">                    &lt;!--分页--&gt;</span><br><span class="line">                    &lt;#include &quot;&#x2F;common&#x2F;page.ftl&quot; &gt;</span><br><span class="line">                &lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>原创技术分享,您可以对我打赏噢~</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/weixin.jpg" alt="Edric_豪 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Edric_豪 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/10/Jquery/" rel="prev" title="Jquery基础语法">
+                  <i class="fa fa-chevron-left"></i> Jquery基础语法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Edric_豪</span>
+</div>
+  <div class="powered-by">由 <a href="https://github.com/EDT777" class="theme-link" rel="noopener" target="_blank">tzh</a> & <a href="https://blog.csdn.net/EDT777" class="theme-link" rel="noopener" target="_blank">java开发</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+</body>
+</html>
